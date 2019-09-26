@@ -3,19 +3,32 @@ package filmespelda.model;
 import filmespelda.Exceptions.Unborn;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Ember {
+    private UUID id;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
     private String vezeteknev;
     private String keresztnev;
     private LocalDate szuletesi_datum;
 
     public Ember(String vezeteknev, String keresztnev, LocalDate szuletesi_datum) throws Unborn {
+        this.id = UUID.randomUUID();
         this.vezeteknev = vezeteknev;
         this.keresztnev = keresztnev;
         setSzuletesi_datum(szuletesi_datum);
     }
 
     public Ember() {
+        this.id = UUID.randomUUID();
     }
 
     public String getVezeteknev() {
